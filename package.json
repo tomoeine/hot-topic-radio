@@ -16,6 +16,7 @@
     "@mastra/libsql": "^0.15.1",
     "@mastra/loggers": "^0.10.15",
     "@mastra/memory": "^0.15.6",
+    "@mastra/voice-google": "^0.11.8",
     "dayjs": "^1.11.18",
     "mastra": "^0.15.0",
     "next": "15.5.4",

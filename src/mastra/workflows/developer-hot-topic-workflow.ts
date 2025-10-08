@@ -25,7 +25,7 @@ const generateHotTopic = createStep({
     
     console.log('Prompt with target_date:', prompt, 'Target date:', targetDate);
     
-    const response = await agent.streamVNext([{ role: 'user', content: prompt }], {
+    const response = await agent.stream([{ role: 'user', content: prompt }], {
       memory: {
         thread: `workflow-${Date.now()}`,
         resource: targetDate || 'today'
