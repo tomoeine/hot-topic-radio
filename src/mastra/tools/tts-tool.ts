@@ -12,7 +12,7 @@ export const ttsTool = createTool({
   }),
   execute: async ({ context }) => {
     return await voice.speak(context.text, {
-      speaker: 'ja-JP-Wavenet-B',
+      speaker: 'ja-JP-Neural2-D',
       languageCode: 'ja-JP',
     });
   },

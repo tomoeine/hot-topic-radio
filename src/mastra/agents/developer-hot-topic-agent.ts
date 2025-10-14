@@ -43,7 +43,7 @@ export const developerHotTopicAgent = new Agent({
   tools: { liveSearchTool },
   memory: new Memory({
     storage: new LibSQLStore({
-      url: 'file:../mastra.db', // path is relative to the .mastra/output directory
+      url: ':memory:', // path is relative to the .mastra/output directory
     }),
   }),
 });
