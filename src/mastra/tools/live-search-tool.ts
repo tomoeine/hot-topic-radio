@@ -106,22 +106,8 @@ export const liveSearchTool = createTool({
 
       const data = await response.json();
       
-      // レスポンスからcitationsを取得
-      const citations = data.citations || [];
+      // レスポンスからcontentを取得
       const content = data.choices?.[0]?.message?.content || data.content || "";
-
-      // 簡易的なパース（実際にはより詳細な解析が必要）
-      const posts = citations.map((url: string, index: number) => ({
-        content: `投稿 ${index + 1}: ${content.slice(index * 100, (index + 1) * 100)}...`,
-        url: url,
-        posted_at: new Date().toISOString(),
-        author: `@user${index + 1}`,
-        metrics: {
-          favorites: min_favorites + Math.floor(Math.random() * 1000),
-          retweets: Math.floor(Math.random() * 500),
-          views: min_views + Math.floor(Math.random() * 10000)
-        }
-      }));
 
       console.log(content)
 
