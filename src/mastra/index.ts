@@ -7,8 +7,7 @@ import { developerHotTopicAgent } from './agents/developer-hot-topic-agent';
 // Vercel環境での設定
 const isVercel = process.env.VERCEL === '1';
 
-console.warn('before mastra');
-const mastra = new Mastra({
+export const mastra = new Mastra({
   workflows: { developerHotTopicWorkflow },
   agents: { developerHotTopicAgent },
   // Vercel環境ではstorageを完全に削除
@@ -17,7 +16,4 @@ const mastra = new Mastra({
     name: 'Mastra',
     level: isVercel ? 'warn' : 'info', // Vercelではログレベルを下げる
   }),
-})
-console.warn('after mastra');
-
-export { mastra };
+});

@@ -1,8 +1,11 @@
 import { Agent } from '@mastra/core/agent';
-import { Memory } from '@mastra/memory';
-import { LibSQLStore } from '@mastra/libsql';
+// import { Memory } from '@mastra/memory';
+// import { LibSQLStore } from '@mastra/libsql';
 import { liveSearchTool } from '../tools/live-search-tool';
 import { xai } from '@ai-sdk/xai';
+
+// Vercel環境ではファイルシステムへの書き込みができないため、
+// メモリ機能を無効化（必要に応じてVercelのKVストアなどを使用可能）
 
 export const developerHotTopicAgent = new Agent({
   name: 'Developer Hot Topic Agent',
@@ -41,9 +44,11 @@ export const developerHotTopicAgent = new Agent({
   `,
   model: xai('grok-4-fast'),
   tools: { liveSearchTool },
-  memory: new Memory({
-    storage: new LibSQLStore({
-      url: ':memory:', // path is relative to the .mastra/output directory
-    }),
-  }),
+  // Vercel環境ではメモリを無効化
+  // ローカル開発でもメモリなしで動作させる
+  // memory: new Memory({
+  //   storage: new LibSQLStore({
+  //     url: ':memory:',
+  //   }),
+  // }),
 });

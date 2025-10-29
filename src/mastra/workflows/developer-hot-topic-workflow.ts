@@ -23,14 +23,10 @@ const generateHotTopic = createStep({
       ? `${targetDate}の開発関連トピックを調べて教えて` 
       : `今日の開発関連トピックを調べて教えて`;
     
-    console.log('Prompt with target_date:', prompt, 'Target date:', targetDate);
+    console.warn('Prompt with target_date:', prompt, 'Target date:', targetDate);
     
-    const response = await agent.stream([{ role: 'user', content: prompt }], {
-      memory: {
-        thread: `workflow-${Date.now()}`,
-        resource: targetDate || 'today'
-      }
-    }); 
+    // Vercel環境ではメモリ機能を無効化
+    const response = await agent.stream([{ role: 'user', content: prompt }]); 
 
     let topicsText = '';
     for await (const chunk of response.textStream) {

@@ -1,11 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  serverExternalPackages: ['@mastra/*'],
-  // Vercel環境での互換性向上
-  experimental: {
-    serverComponentsExternalPackages: ['@mastra/core', '@mastra/libsql', '@mastra/loggers', '@mastra/memory', '@mastra/voice-google'],
-  },
+  serverExternalPackages: ['@mastra/core', '@mastra/libsql', '@mastra/loggers', '@mastra/memory', '@mastra/voice-google'],
   // API routes の設定
   async headers() {
     return [
