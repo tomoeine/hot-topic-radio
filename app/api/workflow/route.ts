@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 export const maxDuration = 300; // 5分のタイムアウト
 
 // Vercel環境でのCORS対応
-export async function OPTIONS(request: NextRequest) {
+export async function OPTIONS(_request: NextRequest) {
   return new Response(null, {
     status: 200,
     headers: {
