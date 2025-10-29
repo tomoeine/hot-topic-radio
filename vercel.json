@@ -2,9 +2,6 @@
   "functions": {
     "app/api/workflow/route.ts": {
       "maxDuration": 300
-    },
-    "app/api/health/route.ts": {
-      "maxDuration": 10
     }
   },
   "env": {
